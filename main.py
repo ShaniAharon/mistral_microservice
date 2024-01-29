@@ -42,6 +42,11 @@ async def generate_ai_response(request: AIRequest):
     print(f'{response  = } mistral')
     return response
 
+#Health Check Endpoint
+@app.get("/health")
+def read_health():
+    return {"status": "healthy"}
+
 import uvicorn
 
 if __name__ == "__main__":
