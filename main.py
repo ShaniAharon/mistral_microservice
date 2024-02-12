@@ -30,6 +30,13 @@ def format_answer(answer):
     # Basic formatting can be expanded based on specific needs
     return answer.replace(" '", "'").replace(" ,", ",").replace(" .", ".").replace(" -", "-")
 
+async def mock_send_post_request(url, json_data, headers):
+    # Simulate network latency with asyncio.sleep
+    await asyncio.sleep(2)  # 2 seconds delay
+    # Return mock response
+    return  "The sky appears blue because of a phenomenon called Rayleigh scattering. Blue light has shorter wavelengths than other colors in the visible spectrum, and it scatters more easily when it collides with particles or gas molecules in the atmosphere. This scattering effect causes blue light to be scattered in all directions throughout the sky, creating a blue appearance during the daytime hours. At sunrise and sunset, red light is more prominent due to its longer wavelength, which allows it to travel farther through the atmosphere without being scattered as much. This creates a reddish color in the sky."
+    
+
 class AIRequest(BaseModel):
     prompt: str
 
@@ -54,7 +61,8 @@ async def generate_ai_response(request: AIRequest):
         "X-RapidAPI-Host": "meta-llama-fast-api.p.rapidapi.com"
     }
 
-    response = await send_post_request(url, payload, headers)
+    # response = await send_post_request(url, payload, headers)
+    response = await mock_send_post_request(url, payload, headers)
     print(f'{response  = } mistral')
     return response
 
