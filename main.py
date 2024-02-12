@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import aiohttp
 import asyncio
 from pydantic import BaseModel
@@ -9,6 +10,21 @@ load_dotenv()
 RAPID_API_KEY = os.getenv('RAPID_API_KEY')
 
 app = FastAPI()
+
+# Set up CORS middleware options
+origins = [
+    "http://localhost:5173",  # The origin you are making requests from, adjust as needed
+    "http://localhost:3000",  # Add other origins as needed
+    # You can use "*" to allow all origins, but be cautious with this approach
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # List of origins that are allowed to make requests
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 def format_answer(answer):
     # Basic formatting can be expanded based on specific needs
