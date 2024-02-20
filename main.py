@@ -62,6 +62,7 @@ async def generate_ai_response(request: AIRequest):
     }
 
     # response = await send_post_request(url, payload, headers)
+    print(f'{payload = }')
     response = await mock_send_post_request(url, payload, headers)
     print(f'{response  = } mistral')
     return response
