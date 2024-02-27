@@ -83,6 +83,13 @@ async def get_graph_data():
     }
     return graph_data
 
+# Define a new GET route for graph data
+@app.get("/industry-data")
+async def get_industry_data():
+    # The mock data for the graph, matching the required structure
+    industry_data = {'paragraphs': ['intro', 'paragraph_1', 'paragraph_2', 'paragraph_3'], 'titles': ['block_name title', 'paragraph_1_title', 'paragraph_2_title', 'paragraph_3_title']}
+    return industry_data
+
 #Health Check Endpoint
 @app.get("/health")
 def read_health():
