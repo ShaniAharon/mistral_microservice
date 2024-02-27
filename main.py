@@ -79,6 +79,7 @@ async def get_graph_data():
             "values": [20, 30, 40, 50]  # Assuming these are in billions
         }
     }
+    await asyncio.sleep(2)  # 2 seconds delay
     return graph_data
 
 #Health Check Endpoint
