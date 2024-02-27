@@ -15,6 +15,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",  # The origin you are making requests from, adjust as needed
     "http://localhost:3000",  # Add other origins as needed
+    "http://localhost:5000",  # Add other origins as needed
     # You can use "*" to allow all origins, but be cautious with this approach
 ]
 
