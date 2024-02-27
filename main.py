@@ -67,6 +67,20 @@ async def generate_ai_response(request: AIRequest):
     print(f'{response  = } mistral')
     return response
 
+# Define a new GET route for graph data
+@app.get("/graph-data")
+async def get_graph_data():
+    # The mock data for the graph, matching the required structure
+    graph_data = {
+        "title": "Total Addressable Market (TAM)",
+        "data": {
+            "labels": ["2020", "2021", "2022", "2023"],
+            "label": "Total Addressable Market",
+            "values": [20, 30, 40, 50]  # Assuming these are in billions
+        }
+    }
+    return graph_data
+
 #Health Check Endpoint
 @app.get("/health")
 def read_health():
