@@ -34,7 +34,7 @@ def format_answer(answer):
 
 async def mock_send_post_request(url, json_data, headers):
     # Simulate network latency with asyncio.sleep
-    await asyncio.sleep(2)  # 2 seconds delay
+    await asyncio.sleep(0.5)  # 2 seconds delay
     # Return mock response
     return  "The sky appears blue because of a phenomenon called Rayleigh scattering. Blue light has shorter wavelengths than other colors in the visible spectrum, and it scatters more easily when it collides with particles or gas molecules in the atmosphere. This scattering effect causes blue light to be scattered in all directions throughout the sky, creating a blue appearance during the daytime hours. At sunrise and sunset, red light is more prominent due to its longer wavelength, which allows it to travel farther through the atmosphere without being scattered as much. This creates a reddish color in the sky."
     
@@ -81,7 +81,6 @@ async def get_graph_data():
             "values": [20, 30, 40, 50]  # Assuming these are in billions
         }
     }
-    await asyncio.sleep(1)  # 1 seconds delay
     return graph_data
 
 #Health Check Endpoint
